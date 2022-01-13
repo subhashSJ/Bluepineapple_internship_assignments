@@ -3,8 +3,12 @@
 
 using namespace std;
 
-int countDigits(int num){
+int countDigits(long int num){
 	int count = 0;
+	
+	if(num<0){
+		num = num * (-1);
+	}
 	
 	while(num>0){
 		num = num/10;
@@ -12,17 +16,18 @@ int countDigits(int num){
 	}
 return count;	
 }
+
 int main(){
-	int num;
+	long int num;
 	char choice;
 	
 	do{
 		cout<<"Enter an integer : ";
 		cin>>num;
 		
-		cout<<"Number of digits in "<<num<<" :"<<countDigits(num)<<endl;
+		cout<<"Number of digits in "<<num<<" : "<<countDigits(num)<<endl;
 		
-		cout<<"do you want to continue? (y/n) :";
+		cout<<endl<<"do you want to continue? (y/n) :";
 		cin>>choice;
 		
 	}while(choice == 'Y' || choice=='y');

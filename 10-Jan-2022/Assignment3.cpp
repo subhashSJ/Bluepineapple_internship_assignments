@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void occurrencesOfDigits(int num){
+void occurrencesOfDigits(long int num){
 	int count[10];
 	
 	for(int i=0; i<10; i++){
@@ -20,8 +20,9 @@ void occurrencesOfDigits(int num){
 		cout<<i<<" occurred "<<count[i]<<" times."<<endl;
 	}	
 }
+
 int main(){
-	int num;
+	long int num;
 	char choice;
 	
 	do{
@@ -34,8 +35,10 @@ int main(){
 		
 		occurrencesOfDigits(num);
 		
+		cout<<endl;
 		cout<<"do you want to continue? (y/n) :";
 		cin>>choice;
+		cout<<endl;
 		
 	}while(choice == 'Y' || choice=='y');
 return 0;	

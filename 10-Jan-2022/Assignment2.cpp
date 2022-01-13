@@ -5,6 +5,7 @@
 */
 
 #include<iostream>
+#include<vector>
 
 using namespace std;
 
@@ -25,40 +26,50 @@ int isPerfect(int num){
 	}	
 }
 
-void perfectNumbers(int num){
+vector<int> perfectNumbers(int num){
 	int flag = 0;
+	
+	vector<int> v;
 	
 	while(num>0){
 		if(isPerfect(num)){
-			cout<<num<<"\t";
-			flag = 1;
+			v.push_back(num);
 		}
 		num--;
 	}
 	
-	if(flag == 0){
-		cout<<" - ";
-	}
+	return v;
 }
 
 int main(){
 	int num;
 	char choice;
+	vector<int> v;
 	
 	do{
 		a:	cout<<"Enetr a positive integer : ";
 		cin>>num;
 	
 		if(num<1){
+			cout<<"Invalid Entry => ";
 			goto a;
 		}
 	
-		cout<<"All perfect numbers between 1 to "<<num<<" : ";
-		perfectNumbers(num);
+		v = perfectNumbers(num);
+		
+		if(v.empty()){
+			cout<<"There does not EXIT any perfect number between 1 to "<<num<<"."<<endl;
+		}else{
+			cout<<"All perfect numbers between 1 to "<<num<<" : ";
+			for(int i=v.size()-1; i>=0; i--){
+				cout<<v[i]<<"\t";
+			}
+		}
 		cout<<endl<<endl;
 		
 		cout<<"do you want to continue? (y/n) :";
 		cin>>choice;
+		cout<<endl;
 		
 	}while(choice == 'Y' || choice=='y');
 	
