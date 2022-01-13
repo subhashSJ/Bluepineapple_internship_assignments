@@ -190,7 +190,7 @@ void display(){
 		printf("No book present to display.\n");
 		return;
 	}else{
-		printf("Available book : \n");
+		printf("Available books : \n");
 		while(temp->next!=NULL){
 		printf("Book id : %d\t",temp->id);
 		printf("Book name : %s\n",temp->name);

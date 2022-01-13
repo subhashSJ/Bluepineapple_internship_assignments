@@ -10,6 +10,7 @@ typedef map<string, int>wordFreq;
 
 int main(){
 	char para[1000];
+	char choice;
 	string key;
 	string str;
 	
@@ -39,16 +40,25 @@ int main(){
 		}
 	}
 	
-	cout<<"Enter the word : ";
-	cin>>str;
+	do{
+		cout<<"Enter the word : ";
+		cin>>str;
+		
+		itr = word.find(str);
 	
-	itr = word.find(str);
-
-    if (itr != word.end())
-        cout<<"`"<<str<<"`"<<" has occured "<<(*itr).second<<" times.";
-	else{
-		cout<<"`"<<str<<"`"<<" is not present in the given paragraph.";
-	}
+	    if (itr != word.end())
+	        cout<<"`"<<str<<"`"<<" has occured "<<(*itr).second<<" times.";
+		else{
+			cout<<"`"<<str<<"`"<<" is not present in the given paragraph.";
+		}
+		cout<<endl<<endl;
+		
+		cout<<"do you want to continue? (y/n) :";
+		cin>>choice;
+		cin.ignore();
+		
+	}while(choice == 'Y' || choice=='y');
+	
 	
 return 0;	
 } 
