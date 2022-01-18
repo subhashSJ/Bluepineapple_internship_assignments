@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int countDigits(long int num){
+int countDigits(long long int num){
 	int count = 0;
 	
 	if(num<0){
@@ -18,7 +18,7 @@ return count;
 }
 
 int main(){
-	long int num;
+	long long int num;
 	char choice;
 	
 	do{

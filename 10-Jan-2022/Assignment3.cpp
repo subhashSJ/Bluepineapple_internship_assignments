@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void occurrencesOfDigits(long int num){
+void occurrencesOfDigits(long long int num){
 	int count[10];
 	
 	for(int i=0; i<10; i++){
@@ -22,7 +22,7 @@ void occurrencesOfDigits(long int num){
 }
 
 int main(){
-	long int num;
+	long long int num;
 	char choice;
 	
 	do{

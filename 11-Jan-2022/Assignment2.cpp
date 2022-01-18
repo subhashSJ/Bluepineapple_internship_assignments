@@ -1,6 +1,7 @@
 /* Matrix Multiplication m*n . n*r */
 
 #include<iostream>
+#include<stdlib.h>
 
 using namespace std;
 
@@ -9,9 +10,9 @@ int main(){
 	int col2;
 	int row1;
 	int row2;
-	int sum = 0;
 	
 	char choice;
+	int sum = 0;
 	
 	do{
 		a: cout<<"Enter row dimension of the first matrix : ";
@@ -81,9 +82,10 @@ int main(){
 				cout<<M2[i][j]<<"\t";
 			cout<<endl;
 		}
-				
+		
 		int output[row1][col2];
 		
+		// taking product
 		for(int i=0; i<row1; i++){
 			for(int j=0; j<col2; j++){
 				sum = 0;
@@ -94,6 +96,7 @@ int main(){
 			}
 		}
 		
+		cout<<endl;		
 		cout<<"Product of the given matrices : "<<endl<<endl;
 		for(int i=0; i<row1; i++){
 			for(int j=0; j<col2; j++)
