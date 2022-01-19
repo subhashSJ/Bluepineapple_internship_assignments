@@ -17,7 +17,17 @@ bool isPalindrome(char arr[]){
 	k=i-1;
 	
 	for(int j=0; j<=(i/2)+1; j++){
-		if(arr[j] != arr[k--])
+		if(!isalpha(arr[j])){
+			continue;
+		}
+		
+		if(!isalpha(arr[k])){
+			j--;
+			k--;
+			continue;
+		}
+		
+		if(tolower(arr[j]) != tolower(arr[k--]))
 			return false;
 	}
 	
