@@ -17,14 +17,22 @@ bool isPalindrome(char arr[]){
 	k=i-1;
 	
 	for(int j=0; j<=(i/2)+1; j++){
-		if(!isalpha(arr[j])){
+		
+		if(!isalpha(arr[j]) && !isdigit(arr[j])){
 			continue;
 		}
 		
-		if(!isalpha(arr[k])){
+		if(!isalpha(arr[k]) && !isdigit(arr[k])){
 			j--;
 			k--;
 			continue;
+		}
+		
+		if(isdigit(arr[j]) || isdigit(arr[k])){
+			if(arr[j] != arr[k--])
+				return false;
+			else
+				continue;	
 		}
 		
 		if(tolower(arr[j]) != tolower(arr[k--]))
