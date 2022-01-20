@@ -150,6 +150,13 @@ string numberToWords(long long int num){
 				result+=threeDigitsNumberToWords(num/1000000000)+" Billion ";
 				num = num%1000000000;
 			}
+		}else if(num/1000000000000 < 1000 ){
+			if(num%1000000000000 == 0){
+				result+=threeDigitsNumberToWords(num/1000000000000) + " Trillion ";
+			}else{
+				result+=threeDigitsNumberToWords(num/1000000000000)+" Trillion ";
+				num = num%1000000000000;
+			}
 		}
 	}
 	
