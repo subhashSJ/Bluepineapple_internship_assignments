@@ -125,7 +125,7 @@ string threeDigitsNumberToWords(int num){
 	return result;	
 }
 
-string numberToWords(long int num){
+string numberToWords(long long int num){
 	string result;
 	
 	while(num> 0){
@@ -143,6 +143,13 @@ string numberToWords(long int num){
 				result+=threeDigitsNumberToWords(num/1000000)+" Million ";
 				num = num%1000000;
 			}
+		}else if(num/1000000000 < 1000 ){
+			if(num%1000000000 == 0){
+				result+=threeDigitsNumberToWords(num/1000000000) + " Billion ";
+			}else{
+				result+=threeDigitsNumberToWords(num/1000000000)+" Billion ";
+				num = num%1000000000;
+			}
 		}
 	}
 	
@@ -150,7 +157,7 @@ return result;
 }
 
 int main(){
-	long int num;
+	long long int num;
 	char choice;
 	
 	do{

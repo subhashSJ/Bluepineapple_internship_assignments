@@ -120,8 +120,17 @@ int main(){
 		"away", "law", "actually", "large", "though", "provide", "lose", "power",
 		"kid", "war", "understand", "head", "mother", "real", "best", "team", 
 		"eye", "long", "long", "side", "water", "young", "wait", "okay", "both",
-		"yet", "after", "meet", "service", "area", "important", "person", "hey",
-		"thank"
+		"yet", "after", "meet", "service", "area", "important", "person", 
+		"hey", "thank", "a", "as", "assure", "ball", "boy", "bat", "box", 
+		"cat", "call", "catch", "day", "dog", "dig", "date", "devloper", 
+		"elephant", "eat", "egg", "easy", "farm", "favour", "great", "goat", 
+		"gathere", "goverment", "get", "hi", "hello", "hike", "hour", "hat",
+        "in", "ink", "india", "is", "ideal", "joker", "jet", "just", "kilo", 
+		"king", "kite", "keen", "lion", "lie", "left", "leave", "let", "menu",
+		"mouse", "my", "next", "new", "nothing", "ok", "online", "pc", 
+		"private", "queen", "quit", "rose", "rib", "salute", "sir","there", 
+		"then", "talk", "up", "umbrella", "very", "van", "wrose","wrap", 
+		"xerox", "yalk", "yes", "zygote", "zoo"
 	};
     int n = sizeof(keys)/sizeof(keys[0]);
  
@@ -151,7 +160,7 @@ int main(){
 	    search(root, length,s);
 	    
 	    if(v.empty()){
-				cout<<endl<<"No word starting with "<<ch<<" and having lenght "<<length<<" exist as of now."<<endl;
+				cout<<endl<<"No word starting with "<<ch<<" and having lenght "<<length<<" exist in our dictionary as of now."<<endl;
 			}else{
 				cout<<endl<<"Possible Hints : "<<endl;
 				for(int i=v.size()-1; i>=0; i--){
