@@ -3,6 +3,7 @@
 #include <bits/stdc++.h>
 #include<string>
 #include<vector>
+#include<stdlib.h>
 
 #define SIZE 26
 
@@ -16,6 +17,8 @@ struct TrieNode
 };
  
 vector<string> v;
+
+int flag=1;
  
 // Returns new trie node with all NULL values
 struct TrieNode *getNode(void)
@@ -47,8 +50,6 @@ void insert(struct TrieNode *root, string str)
    // assuring end of the word
     temp->isEndOfWord = true;
 }
- 
-int flag=1;
 
 void search(struct TrieNode *root, int length, string s)
 {
@@ -103,8 +104,11 @@ void search(struct TrieNode *root, int length, string s)
  
 int main(){ 
 	int length;
-	char ch;
 	char choice;
+	int flag1 = 1;
+	int flag3 = 1;
+	char ch;
+    	
 	
     string keys[] = {
 		"the", "be", "and", "problem", "where", "believe", "country", "always",
@@ -133,7 +137,7 @@ int main(){
 		"xerox", "yalk", "yes", "zygote", "zoo"
 	};
     int n = sizeof(keys)/sizeof(keys[0]);
- 
+ 	
     struct TrieNode *root = getNode();
  
     // Construct a dictionary for crossword
@@ -144,29 +148,68 @@ int main(){
  	
     do{
     	v.clear();
-    	
-    	string s="";
+    
+    	string initialLetter="";
+    	string LettersWithPositions="";
     	
 		flag=1;
+    	flag1=1;
+    	flag3 = 1;
     	
-		cout<<endl<<"Enter a initial letter of the word : ";
+		cout<<endl<<"Enter a first letter of the word : ";
 	    cin>> ch;
 	    
+	    LettersWithPositions+=ch;
+	    
+	    while(flag1){
+	    	char choice;
+	    	
+	    	cout<<endl<<"Would you like to provide other letter of a word and its position in a word?(y/n) : ";
+	    	cin>>choice;
+	    	
+	    	if(choice == 'y' || choice == 'Y'){
+	    		cout<<"Enter the letter : ";
+	    		cin>>ch;
+	    		LettersWithPositions+=ch;
+	    		
+	    		cout<<"Enter "<<ch<<"'s position : ";
+	    		cin>>ch;
+	    		LettersWithPositions+=ch;
+			}else{
+				flag1 = 0;
+			}
+		}
+		
 	    cout<<endl<<"Enter length of the word : ";
 	    cin>> length;
 	    
-	    s+=ch;
+	    initialLetter+=LettersWithPositions[0];
 	
-	    search(root, length,s);
+	    search(root, length,initialLetter);
 	    
-	    if(v.empty()){
-				cout<<endl<<"No word starting with "<<ch<<" and having lenght "<<length<<" exist in our dictionary as of now."<<endl;
-			}else{
-				cout<<endl<<"Possible Hints : "<<endl;
-				for(int i=v.size()-1; i>=0; i--){
-					cout<<"\t"<<v[i]<<endl;
+	    if(!v.empty()){
+			for(int i=v.size()-1; i>=0; i--){
+				int flag2 = 1;
+				for(int j=1; j<LettersWithPositions.length(); j+=2){
+					if(LettersWithPositions[j] != v[i][(LettersWithPositions[j+1] - '0')-1]){
+						flag2 = 0;	
+					}
 				}
+				if(flag2 == 1){
+					if(flag3 == 1){
+						cout<<endl<<"Possible Hints : "<<endl;
+						flag3 = 0;
+					}
+					cout<<"\t"<<v[i]<<endl;
+				}	
 			}
+			if(flag3 == 1){
+				cout<<endl<<"No word with given inputs and having length "<<length<<" exist in our dictionary as of now."<<endl;
+			}
+		}else{
+			cout<<endl<<"No word starting with "<<ch<<" and having length "<<length<<" exist in our dictionary as of now."<<endl;
+		}
+			
 		cout<<endl<<endl;
 		cout<<"do you want to continue? (y/n) :";
 		cin>>choice;
