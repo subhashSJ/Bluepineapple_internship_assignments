@@ -1,0 +1,35 @@
+.main{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  height:90vh;
+}
+
+.div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:15vh;
+  margin: 4px;
+  border-radius: 7px;
+}
+
+.flex-direction-column{
+  flex-direction: column;
+}
+
+button{
+  margin: 3px;
+}
+
+.border-radius-4{
+  border-radius: 4px;
+}
+
+.message{
+  font-family:cursive;
+  font-size: 10vh;
+  color: red;
+}
