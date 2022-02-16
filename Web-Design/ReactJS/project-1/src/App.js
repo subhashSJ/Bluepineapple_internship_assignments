@@ -12,7 +12,7 @@ function App() {
     setMessage("");
   };
   return (
-    <div className="main">
+    <div className="main bg-success text-white rounded">
       <h1>Welcome to the first react project !</h1>
 
       <div className="container bg-warning border-radius-4">
