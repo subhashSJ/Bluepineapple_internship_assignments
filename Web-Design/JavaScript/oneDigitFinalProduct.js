@@ -10,6 +10,10 @@ const getOneDigitFinalProduct = (...parameters) => {
     return total + currentValue;
   });
 
+  if(sumResult < 0){
+    return "Total Sum is NEGATIVE."
+  }
+
   while (sumResult > 9) {
     let str = sumResult.toString();
     sumResult = new Array(...str).reduce((total, currentValue) => {

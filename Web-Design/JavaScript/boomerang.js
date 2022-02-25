@@ -10,6 +10,9 @@
 */
 
 const getAllBoomerangs = (data) => {
+  if (data.length === 0) {
+    return "INSUFFICIENT DATA";
+  }
   var result = [];
   for (let index = 0; index < data.length; index++) {
     if (data[index] === data[index + 2] && data[index] !== data[index + 1]) {
@@ -23,4 +26,8 @@ const data = [3, 7, 3, 2, 1, 5, 1, 2, 2, -2, 2, -2];
 
 const result = getAllBoomerangs(data);
 
-console.log(`${result.length} boomerangs in this sequence:`, ...result);
+if (typeof result === "string") {
+  console.log(result);
+} else {
+  console.log(`${result.length} boomerangs in this sequence:`, ...result);
+}

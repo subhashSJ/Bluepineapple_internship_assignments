@@ -4,13 +4,15 @@
 */
 
 const getStringsContaingNumber = (data) =>
-  data.filter((str) => {
-    for (const ch of str) {
-      if (Number(ch)) {
-        return str;
-      }
-    }
-  });
+  data.length !== 0
+    ? data.filter((str) => {
+        for (const ch of str) {
+          if (Number(ch)) {
+            return str;
+          }
+        }
+      })
+    : "INSUFFICIENT DATA";
 
 const data = [
   "Subhash",

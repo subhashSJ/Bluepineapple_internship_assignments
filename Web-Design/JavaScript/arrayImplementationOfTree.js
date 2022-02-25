@@ -17,6 +17,10 @@ var subTree = [];
 
 const getATree = (root) => {
   let rootObj = {};
+  if (data.length === 0) {
+    console.log("INSUFFICIENT DATA");
+    return;
+  }
 
   data.forEach((node) => {
     if (node.id === root) {
@@ -24,26 +28,24 @@ const getATree = (root) => {
     }
   });
 
-  const childrenOfRoot = data.filter(node =>{
-     return(
-        (node.depth === rootObj.depth + 1 && node.parentId === rootObj.id)
-     )
+  const childrenOfRoot = data.filter((node) => {
+    return node.depth === rootObj.depth + 1 && node.parentId === rootObj.id;
   });
 
-  if(childrenOfRoot.length === 0){
-      return;
-  }else{
-      childrenOfRoot.forEach(e => subTree.push(e));
-      childrenOfRoot.forEach(e => getATree(e.id));
+  if (childrenOfRoot.length === 0) {
+    return;
+  } else {
+    childrenOfRoot.forEach((e) => subTree.push(e));
+    childrenOfRoot.forEach((e) => getATree(e.id));
   }
 };
 
 const root = "r89n76";
 getATree(root);
 
-if(subTree.length === 0){
-    console.log("NO SUB-TREE OF GIVEN ROOT EXISTS!");
-}else{
-    console.log(`SUB-TREE FOR "${root}" :`);
-    console.table(subTree);
+if (subTree.length === 0) {
+  console.log("NO SUB-TREE OF GIVEN ROOT EXISTS!");
+} else {
+  console.log(`SUB-TREE FOR "${root}" :`);
+  console.table(subTree);
 }

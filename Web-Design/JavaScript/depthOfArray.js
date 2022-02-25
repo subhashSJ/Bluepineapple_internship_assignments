@@ -8,6 +8,9 @@
 */
 
 const depth = (arr) => {
+  if (arr.length === 0) {
+    return 0;
+  }
   var depthOfEachElement = [];
   arr.forEach((element) => {
     let count = 1;
