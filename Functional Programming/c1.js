@@ -15,6 +15,9 @@ const trace = (label) => (value) => {
 const curry = (func) => {
   return function curried(...args) {
     console.log("args : ", ...args);
+    console.log("func : ", func);
+    console.log("args.length : ", args.length);
+    console.log("func.length : ", func.length);
     if (args.length >= func.length) {
       return func.apply(this, args);
     } else {
