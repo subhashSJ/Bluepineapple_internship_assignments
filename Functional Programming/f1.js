@@ -3,16 +3,18 @@ const _l = msg => console.log('Output ==> [' + msg + ']');
 // --------- BOILERPLATE -----------------------------------------------------
 
 const nums = [1, 2, 3, 4, 5];
-/*
-for(var i=0;i<nums.length;i++){
+
+/* for(var i=0;i<nums.length;i++){
   nums[i] = nums[i] + 2;
 }
 _l("incremented = " + nums);
-*/
+ */
 
 
 //Create a new array from values such that each value = orig value + 2
 // use map function
+const newArray = nums.map(num => num+2)
+console.log(newArray);
 
 const v = function (x){
     return x+2;
@@ -44,7 +46,7 @@ _l("Incremented with newArr = " + newArr);
 
 //map -> for each value in array, apply the passed fun and push it into a new array
 
-const f = function(p){
+/* const f = function(p){
   return p+2;
 }
 const numplus2s = nums.map(f); // creates copy without changing original nums
@@ -52,7 +54,7 @@ const numplus2s = nums.map(f); // creates copy without changing original nums
 _l('-------');
 _l(numplus2s);
 _l('-------');
-
+ */
 const names = ['Pooja', 'Prathiksha', 'Renuka', 'Rishikesh'];
 
 function nameLen(name){
@@ -60,3 +62,6 @@ function nameLen(name){
 }
 
 //TODO - create new array with (length + 2) from names array
+
+const namesPlus2 = names.map(nameLen)
+console.log(namesPlus2);

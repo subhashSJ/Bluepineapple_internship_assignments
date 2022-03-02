@@ -3,9 +3,10 @@ const _l = (msg) => console.log("Output ==> [" + msg + "]");
 // --------- BOILERPLATE -----------------------------------------------------
 
 const foo = function () {
-  _l("foobar");
+  return _l("foobar");
 };
 
 const bar = foo;
 // Invoke it using the variable
+bar();
 foo();

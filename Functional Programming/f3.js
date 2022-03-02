@@ -15,6 +15,7 @@ const fac2 = (n) => {
   else {
     //TODO - check if cache['n'] exists
     //if it does reuse, else recompute
+    console.log(n);
     let fac = n * fac2(n - 1);
     return fac;
   }
@@ -24,4 +25,4 @@ const fac2 = (n) => {
 _l('using recursion');
 _l(fac2(5));
 
-_l(fac2(6));
+// _l(fac2(6));
